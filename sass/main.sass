@@ -1,0 +1,138 @@
+@charset 'utf-8'
+@use 'variables'
+
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  font-family: 'PT Sans', sans-serif
+
+html
+  font-size: 62.5%
+
+body
+  display: flex
+  align-items: center
+  justify-content: center
+
+  min-height: 100vh
+  background: variables.$bg-linear
+
+body *
+  font-size: 1.6rem
+
+.card
+  position: relative
+  width: 32rem
+  height: 45rem
+  overflow: hidden
+  
+  border-radius: 2rem
+
+  box-shadow: 0 15px 35px rgba(0,0,0,.25)
+
+  .poster
+    position: relative
+    overflow: hidden
+
+    &::before
+      content: ''
+      position: absolute
+      bottom: -180px
+      width: 100%
+      height: 100%
+      background: variables.$blackout
+
+      transition: .5
+      z-index: 1
+
+    img
+      width: 100%
+
+      transition: .5s
+  
+  &:hover .poster::before
+    bottom: 0px
+  
+  &:hover .poster img
+    transform: translateY(-50px)
+    filter: blur(5px)
+  
+  /* ! Details */
+  &:hover .details
+    bottom: 0rem
+
+  .details
+    position: absolute
+    bottom: -160px
+    left: 0
+
+    width: 100%
+    padding: 2rem
+
+    z-index: 2
+    transition: .5s
+
+
+    .logo
+      max-width: 18rem
+    
+    h3
+      font-size: 1.4rem
+      color: variables.$white
+    
+    .rating
+      position: relative
+      padding: 5px 0
+
+      .fa-star
+        color: variables.$star
+        font-size: 1.2rem
+      
+      span
+        color: variables.$white
+    
+    .tags
+      position: relative
+      margin-top: 5px
+
+      span
+        padding: 2px 5px
+        color: variables.$white
+        background: variables.$categorie-tag
+        border-radius: 4px
+
+        &:nth-child(2)
+          background-color: variables.$main-categorie-tag
+    
+    .info
+      color: variables.$white
+      margin-top: 10px
+    
+    .cast
+      position: relative
+
+      h4
+        color: variables.$white
+        margin-top: 1rem
+      
+      ul
+        position: relative
+
+        display: flex
+        gap: 5px
+
+        margin-top: 1rem
+
+        li
+          list-style: none
+          width: 3.5rem
+          height: 3.5rem
+
+          overflow: hidden
+
+          border-radius: 50%
+          border: 2px solid variables.$white
+
+          img
+            max-width: 100%
